@@ -2,6 +2,20 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
+import { ClerkProvider } from '@clerk/nextjs'
+
+import { FaHome } from "react-icons/fa";
+import { NavbarDemo } from "./(Navigation)/page";
+import { Footer } from "@/components/common/footer";
+
+const navItems = [
+    {
+      name: "Home",
+      link: "/",
+      icon: <FaHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
+    },
+   
+  ];
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -22,10 +36,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider >
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <NavbarDemo />
+       
+          {children}
+          <Footer />
       </body>
     </html>
+    </ClerkProvider>
   );
 }
