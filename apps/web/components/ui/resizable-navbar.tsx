@@ -50,13 +50,10 @@ interface MobileNavMenuProps {
 }
 
 export const Navbar = ({ children, className }: NavbarProps) => {
- 
-  const { scrollY } = useScroll(); 
-  
+  const { scrollY } = useScroll();
   const [visible, setVisible] = useState<boolean>(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    
     if (latest > 100) {
       setVisible(true);
     } else {
@@ -66,16 +63,16 @@ export const Navbar = ({ children, className }: NavbarProps) => {
 
   return (
     <motion.div
-      
-      className={cn("fixed inset-x-0 top-8 z-40 w-full", className)}
+      // CHANGED: 'top-8' -> 'top-2' (Moves the whole bar up)
+      className={cn("fixed inset-x-0 top-1 z-40 w-full", className)}
     >
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(
               child as React.ReactElement<{ visible?: boolean }>,
-              { visible },
+              { visible }
             )
-          : child,
+          : child
       )}
     </motion.div>
   );
@@ -92,7 +89,8 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         transition={{ type: "spring", stiffness: 200, damping: 50 }}
         style={{ minWidth: visible ? "800px" : "100%" }}
         className={cn(
-          "relative z-[60] flex flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 dark:bg-transparent",
+          // CHANGED: 'pt-2 pb-5' -> 'py-3' (Equal vertical padding for centering)
+          "relative z-[60] flex flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-3 dark:bg-transparent",
           visible && "bg-white/80 dark:bg-neutral-950/80 shadow-lg",
           className
         )}

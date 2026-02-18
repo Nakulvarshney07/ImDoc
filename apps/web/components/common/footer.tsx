@@ -4,7 +4,8 @@ import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 export function Footer() {
   return (
-    <footer className="relative w-full bg-gradient-to-br from-gray-400 via-gray-600 to-gray-800 text-white overflow-hidden py-12 md:py-20 border-t border-neutral-800">
+   <div id="contact">
+     <footer className="relative w-full bg-gradient-to-br from-gray-400 via-gray-600 to-gray-800 text-white overflow-hidden py-12 md:py-20 border-t border-neutral-800">
       
       
       <div className="absolute -bottom-10 left-0 z-0 pointer-events-none select-none">
@@ -95,5 +96,6 @@ export function Footer() {
         </div>
       </div>
     </footer>
+   </div>
   );
 }

@@ -15,9 +15,9 @@ import { SignedIn, SignedOut, SignInButton, SignOutButton } from "@clerk/nextjs"
 
 export function NavbarDemo() {
   const navItems = [
-    { name: "Features", link: "#features" },
+    { name: "Learn More", link: "/" },
     { name: "Pricing", link: "#pricing" },
-    { name: "Contact", link: "#contact" },
+    { name: "Contact", link: "#contact", },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -33,7 +33,7 @@ export function NavbarDemo() {
           <div className="flex items-center gap-4">
             <SignedOut>
              
-              <SignInButton mode="modal" forceRedirectUrl="/home">
+              <SignInButton mode="modal" forceRedirectUrl="/dashboard/image_exp">
                 <NavbarButton as="button" variant="secondary">Login</NavbarButton>
               </SignInButton>
             </SignedOut>
@@ -89,7 +89,7 @@ export function NavbarDemo() {
             <SignedOut>
               <div className="flex w-full flex-col gap-4">
                  {/* FIX 2: Added forceRedirectUrl="/home" here too */}
-                 <SignInButton mode="modal" forceRedirectUrl="/home">
+                 <SignInButton mode="modal" forceRedirectUrl="/dashboard/image_exp">
                     <NavbarButton 
                       as="button"
                       onClick={() => setIsMobileMenuOpen(false)}

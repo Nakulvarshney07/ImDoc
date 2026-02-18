@@ -48,7 +48,7 @@ export default function HeaderComp() {
 
         <div className="flex flex-row justify-center items-center pt-10 space-x-8">
           <SignedOut>
-            <SignInButton mode="modal" forceRedirectUrl="/home">
+            <SignInButton mode="modal" forceRedirectUrl="/dashboard/image_exp">
               <HoverBorderGradient 
             containerClassName="rounded-full"
             as="button"
@@ -63,14 +63,14 @@ export default function HeaderComp() {
 
           <SignedIn>
             
-             <Link href="/home">
+             <Link href="/dashboard/image_exp ">
               <HoverBorderGradient 
             containerClassName="rounded-full"
             as="button"
            
             className="bg-black text-white flex items-center space-x-2 px-6 py-3"
           >
-             <span className="text-lg">Home page</span> 
+             <span className="text-lg">Workspace</span> 
              <FaArrowRight />
           </HoverBorderGradient>
              </Link>  

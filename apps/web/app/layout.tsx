@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-import { ClerkProvider } from '@clerk/nextjs'
+import { ClerkProvider, SignedIn, SignedOut } from '@clerk/nextjs'
 
 import { FaHome } from "react-icons/fa";
 import { NavbarDemo } from "./(Navigation)/page";
 import { Footer } from "@/components/common/footer";
+import SideBar from "@/components/common/sidebar";
 
 const navItems = [
     {
@@ -40,9 +41,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <NavbarDemo />
-       
           {children}
-          <Footer />
+         <SignedOut >
+           <Footer />
+         </SignedOut>
       </body>
     </html>
     </ClerkProvider>
