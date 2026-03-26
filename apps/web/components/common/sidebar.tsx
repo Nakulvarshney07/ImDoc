@@ -1,4 +1,4 @@
-import { FaHome, FaProjectDiagram, FaCog, FaImage, FaFilePdf, FaHistory } from "react-icons/fa";
+import { FaHome, FaProjectDiagram, FaCog, FaImage, FaFilePdf, FaHistory, FaFolderOpen } from "react-icons/fa";
 import Link from "next/link";
 
 interface SideBarProps {
@@ -8,8 +8,7 @@ interface SideBarProps {
 export default function SideBar({ isCollapsed = false }: SideBarProps) {
   const topNavItems = [
     { name: "Home", icon: <FaHome />, href: "/" },
-    { name: "Image_exp", icon: <FaImage/>, href: "/dashboard/image_exp" },
-    { name: "Pdf_exp", icon: <FaFilePdf/>, href: "/dashboard/pdf_exp" },
+    { name: "Chat", icon: <FaFolderOpen />	, href: "/dashboard/chat" },
     { name: "History", icon: <FaHistory/>, href: "/dashboard/history" },
   ];
 
@@ -36,7 +35,7 @@ export default function SideBar({ isCollapsed = false }: SideBarProps) {
   );
 
   return (
-    <div className="flex flex-col h-full py-4 gap-5">
+    <div className="flex flex-col h-full py-4 gap-5 bg-gray-100">
       <div className="flex flex-col gap-4">
         {topNavItems.map(renderNavItem)}
       </div>

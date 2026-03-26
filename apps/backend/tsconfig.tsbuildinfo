@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/app/index.ts","./src/app/controllers/cloudinary/index.ts","./src/app/controllers/documents/index.ts","./src/app/controllers/image/index.ts","./src/app/routes/documents/index.ts","./src/app/routes/image/index.ts"],"version":"5.9.2"}

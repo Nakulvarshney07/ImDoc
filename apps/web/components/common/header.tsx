@@ -48,7 +48,7 @@ export default function HeaderComp() {
 
         <div className="flex flex-row justify-center items-center pt-10 space-x-8">
           <SignedOut>
-            <SignInButton mode="modal" forceRedirectUrl="/dashboard/image_exp">
+            <SignInButton mode="modal" forceRedirectUrl="/dashboard/chat">
               <HoverBorderGradient 
             containerClassName="rounded-full"
             as="button"
@@ -63,7 +63,7 @@ export default function HeaderComp() {
 
           <SignedIn>
             
-             <Link href="/dashboard/image_exp ">
+             <Link href="/dashboard/chat">
               <HoverBorderGradient 
             containerClassName="rounded-full"
             as="button"

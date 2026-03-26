@@ -33,7 +33,7 @@ export function NavbarDemo() {
           <div className="flex items-center gap-4">
             <SignedOut>
              
-              <SignInButton mode="modal" forceRedirectUrl="/dashboard/image_exp">
+              <SignInButton mode="modal" forceRedirectUrl="/dashboard/chat">
                 <NavbarButton as="button" variant="secondary">Login</NavbarButton>
               </SignInButton>
             </SignedOut>
@@ -89,7 +89,7 @@ export function NavbarDemo() {
             <SignedOut>
               <div className="flex w-full flex-col gap-4">
                  {/* FIX 2: Added forceRedirectUrl="/home" here too */}
-                 <SignInButton mode="modal" forceRedirectUrl="/dashboard/image_exp">
+                 <SignInButton mode="modal" forceRedirectUrl="/dashboard/chat">
                     <NavbarButton 
                       as="button"
                       onClick={() => setIsMobileMenuOpen(false)}
