@@ -8,6 +8,8 @@ import { FaHome } from "react-icons/fa";
 import { NavbarDemo } from "./(Navigation)/page";
 import { Footer } from "@/components/common/footer";
 import SideBar from "@/components/common/sidebar";
+import { Toaster } from "@/components/ui/sonner";
+import { StoreProvider } from "@/providers/StoreProvider";
 
 const navItems = [
     {
@@ -41,10 +43,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <NavbarDemo />
+         <StoreProvider>
           {children}
+        </StoreProvider>
          <SignedOut >
            <Footer />
          </SignedOut>
+          <Toaster />
       </body>
     </html>
     </ClerkProvider>
