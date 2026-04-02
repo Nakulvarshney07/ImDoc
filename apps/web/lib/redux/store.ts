@@ -1,9 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import upload from "./features/uploadDocs";
+import chat from "./features/chatSlice"
 
 export const store = configureStore({
   reducer: {
     upload:upload,
+    chat:chat,
+
   },
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

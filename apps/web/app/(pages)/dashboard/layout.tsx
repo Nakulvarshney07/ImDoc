@@ -8,7 +8,7 @@ export default function DashboardLayout({
 }) {
   return (
     <section>
-      {/* You can add a specific sidebar or header here if needed */}
+     
       <DashboardShell>
         {children}
       </DashboardShell>

@@ -1,4 +1,4 @@
-import { FaHome, FaProjectDiagram, FaCog, FaImage, FaFilePdf, FaHistory, FaFolderOpen } from "react-icons/fa";
+import { FaHome, FaProjectDiagram, FaCog, FaImage, FaFilePdf, FaHistory, FaFolderOpen,FaFileAudio  } from "react-icons/fa";
 import Link from "next/link";
 
 interface SideBarProps {
@@ -8,8 +8,11 @@ interface SideBarProps {
 export default function SideBar({ isCollapsed = false }: SideBarProps) {
   const topNavItems = [
     { name: "Home", icon: <FaHome />, href: "/" },
-    { name: "Chat", icon: <FaFolderOpen />	, href: "/dashboard/chat" },
+    { name: "Image/Pdf", icon: <FaFolderOpen />	, href: "/dashboard/chat" },
+     { name: "Audio Notes", icon: <FaFileAudio  />, href: "/dashboard/audioCon" },
     { name: "History", icon: <FaHistory/>, href: "/dashboard/history" },
+   
+
   ];
 
   const bottomNavItems = [

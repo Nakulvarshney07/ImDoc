@@ -7,14 +7,13 @@ export type FileItem = {
   type: "image" | "pdf";
 };
 
+
 type State = {
   files: FileItem[];
-  isFirstMessage: boolean;
 };
 
 const initialState: State = {
   files: [],
-  isFirstMessage: true,
 };
 
 const uploadSlice = createSlice({
@@ -35,12 +34,8 @@ const uploadSlice = createSlice({
     clearFiles: (state) => {
       state.files = [];
     },
-
-    markFirstMessageSent: (state) => {
-      state.isFirstMessage = false;
-    },
   },
 });
 
-export const { addFiles, removeFile, clearFiles, markFirstMessageSent } = uploadSlice.actions;
+export const { addFiles, removeFile, clearFiles } = uploadSlice.actions;
 export default uploadSlice.reducer;
