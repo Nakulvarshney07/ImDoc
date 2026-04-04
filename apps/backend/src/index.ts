@@ -1,9 +1,22 @@
 import express from "express";
 import cors from "cors"
 import { appRouter } from "./app";
-const app=express();
 import dotenv from "dotenv";
-dotenv.config();
+import path from "path";
+
+
+const app=express();
+
+
+dotenv.config({
+     path: path.join(process.cwd(), ".env"),
+});
+
+console.log("ENV DEBUG:", {
+  name: process.env.CLOUD_NAME,
+  key: process.env.CLOUD_API_KEY,
+  secret: process.env.CLOUD_API_SECRET,
+});
 
 const port=process.env.PORT || 3001
 
@@ -19,7 +32,7 @@ app.post("/test",(req,res)=>{
         message:"Hello World"
     })
 })
-app.use("/app",appRouter)
+app.use("/app/v1",appRouter)
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
 })

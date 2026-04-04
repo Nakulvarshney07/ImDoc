@@ -7,12 +7,12 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section>
+    <>
      
       <DashboardShell>
         {children}
       </DashboardShell>
       
-    </section>
+    </>
   );
 }

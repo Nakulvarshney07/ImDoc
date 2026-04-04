@@ -26,11 +26,13 @@ import {
 } from "@/lib/redux/features/uploadDocs";
 import { FileItem } from "@/lib/redux/features/uploadDocs";
 import MessageArea from "@/components/common/Messages";
+import { addMessage, setConversationId, updateLastMessage } from "@/lib/redux/features/chatSlice";
 
 export default function InputArea() {
   const [prompt, setPrompt] = useState("");
   const dispatch = useAppDispatch();
   const files = useAppSelector((state) => state.upload.files);
+  const conversationId = useAppSelector((state) => state.chat.conversationId);
   async function handleSend(e: React.FormEvent) {
     e.preventDefault();
     try {
@@ -51,7 +53,37 @@ export default function InputArea() {
         );
         const uploadData=await uploadRes.json();
         uploadedFiles = uploadData.files;
+        dispatch(clearFiles());
+
       }
+      //will add user to redux
+      dispatch(addMessage({
+        id: crypto.randomUUID(),
+        prompt:prompt,
+        response:"",
+        images:uploadedFiles
+      }))
+
+      const res=await fetch("http://localhost:3001/app/v1/data/upload",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          prompt,
+          images:uploadedFiles,
+          conversationId
+          
+        })
+      })
+
+      const data=await res.json()
+      if(!conversationId){
+        dispatch(setConversationId(data.conversationId))
+
+      }
+      dispatch(updateLastMessage(data.response))
+      setPrompt("");
 
       
     } catch (e) {

@@ -1,8 +1,10 @@
 import { Router } from "express";
-import { imageRouter } from "./routes/image";
-import { documentRouter } from "./routes/documents";
+import { DataRouter } from "./routes/Data";
+import { CloudinaryRouter } from "./routes/cloudinary";
+
 
 export const appRouter:Router = Router();
-
-appRouter.use("/image",imageRouter)
-appRouter.use("/document",documentRouter)
+//for all data
+appRouter.use("/data",DataRouter)
+//for images through cloudinary
+appRouter.use("/files",CloudinaryRouter)

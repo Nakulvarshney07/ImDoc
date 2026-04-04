@@ -28,12 +28,23 @@ const chatSlice = createSlice({
       state.messages.push(action.payload);
     },
 
-    clearChat: (state) => {
-      state.conversationId = null;
+    clearMessages: (state) => {
       state.messages = [];
+    },
+    // last message ma response add karna ka liya 
+    updateLastMessage: (state, action: PayloadAction<{ response: string }>) => {
+      const last = state.messages[state.messages.length - 1];
+      if (last) {
+        last.response = action.payload.response;
+      }
     },
   },
 });
 
-export const { setConversationId, addMessage, clearChat } = chatSlice.actions;
+export const {
+  setConversationId,
+  addMessage,
+  clearMessages,
+  updateLastMessage,
+} = chatSlice.actions;
 export default chatSlice.reducer;

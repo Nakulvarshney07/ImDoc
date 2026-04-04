@@ -39,7 +39,8 @@ export default function DashboardShell({
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 h-full overflow-y-auto p-6 dark:bg-neutral-900 scroll-smooth">
+      <main className="flex-1 h-full  p-6 dark:bg-neutral-900 scroll-smooth">
+        
         {children}
       </main>
     </div>

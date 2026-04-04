@@ -3,9 +3,8 @@ import {
   createUserContent,
   createPartFromUri,
 } from "@google/genai";
-import path from "path";
 import { Request, Response } from "express";
-export async function uploadImage(req: Request, res: Response) {
+export async function uploadData(req: Request, res: Response) {
   try {
     const ai = new GoogleGenAI({
       apiKey: process.env.GEMINI_API_KEY,

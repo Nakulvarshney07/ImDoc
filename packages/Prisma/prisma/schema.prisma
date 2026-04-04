@@ -12,3 +12,36 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Conversation{
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  title String?
+  updatedAt DateTime @updatedAt
+  messages Message[]
+}
+
+model Message{
+  id String @id @default(uuid())
+  role Role
+  content String
+  createdAt DateTime @default(now())
+
+  conversation Conversation @relation(fields: [conversationId], references: [id],onDelete: Cascade)
+  conversationId String
+  images Image[]
+
+}
+model Image {
+  id        String   @id @default(uuid())
+  url       String
+
+  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  messageId String
+}
+enum Role {
+  USER
+  ASSISTANT
+}
+
+
